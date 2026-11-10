@@ -1387,46 +1387,46 @@
     }
 
     .testimonial-box {
-      min-height: 210px;
+      display: grid;
+      grid-template-columns: 1fr;
       position: relative;
-      display: flex;
       align-items: center;
-      justify-content: center;
+      justify-items: center;
+      width: 100%;
     }
 
     .testim-slide {
-      position: absolute;
-      inset: 0;
+      grid-area: 1 / 1;
+      width: 100%;
       opacity: 0;
       visibility: hidden;
-      transform: translateY(10px);
-      transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s;
+      transform: translateY(8px);
+      transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       gap: 1.25rem;
-      width: 100%;
+      pointer-events: none;
     }
     .testim-slide.active {
       opacity: 1;
       visibility: visible;
       transform: translateY(0);
-      position: relative;
+      pointer-events: auto;
     }
 
     .testim-quote-text {
+      display: block;
       font-size: clamp(1.02rem, 1.8vw, 1.22rem);
       font-weight: 500;
       line-height: 1.65;
       color: #F8FAFC;
       font-style: italic;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-      min-height: 4.8em;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       text-align: center;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+      max-width: 720px;
+      margin: 0 auto;
     }
     .testim-quote-text span.profe-highlight {
       color: #4ade80;
@@ -1531,13 +1531,9 @@
       .testimonials-section {
         padding: 2.2rem 1.25rem 1.8rem;
       }
-      .testimonial-box {
-        min-height: 225px;
-      }
       .testim-quote-text {
         font-size: 0.98rem;
         line-height: 1.6;
-        min-height: 5.6em;
       }
       .testim-controls {
         margin-top: 1.75rem;
@@ -1548,13 +1544,9 @@
       .testimonials-section {
         padding: 2rem 1rem 1.6rem;
       }
-      .testimonial-box {
-        min-height: 235px;
-      }
       .testim-quote-text {
-        font-size: 0.92rem;
+        font-size: 0.90rem;
         line-height: 1.55;
-        min-height: 6em;
       }
       .testim-slide {
         gap: 1rem;
