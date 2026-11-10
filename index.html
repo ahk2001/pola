@@ -1,0 +1,2789 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Auto Escola Pola | Tu Autoescuela en L'Eliana (Valencia) · Permiso B, Motos y Profesional</title>
+  <meta name="description" content="Auto Escola Pola en L'Eliana (Valencia). Más de 40 años formando conductores responsables. Centro asociado AVAE. Profesores pacientes, teórica online 24/7 y alta tasa de aprobados DGT.">
+
+  <!-- Favicon Placa 'L' Oficial Española -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23008f3b'/><path d='M8 6h5v15h11v5H8z' fill='%23ffffff'/></svg>">
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       AUTO ESCOLA POLA - DESIGN SYSTEM & MOTION ENGINE (DRIVEPRO / AVAE)
+       ========================================================================== */
+    :root {
+      /* Identidade Visual Pola & AVAE */
+      --brand-primary: #008f3b;        /* Verde Institucional Pola / AVAE */
+      --brand-primary-hover: #00732f;
+      --brand-primary-light: #e8f7ee;
+      --brand-primary-glow: rgba(0, 143, 59, 0.28);
+
+      --brand-accent: #dec839;         /* Amarelo Ouro / Sinalização DGT */
+      --brand-accent-hover: #c7b22a;
+      --brand-accent-light: #fefbe8;
+
+      --pill-green: #25D366;           /* Verde Oficial WhatsApp */
+      --pill-green-hover: #20ba59;
+      --pill-green-glow: rgba(37, 211, 102, 0.35);
+
+      --dgt-blue: #0066CC;             /* Azul Placa L Prácticas DGT */
+      --dgt-blue-hover: #0052a3;
+
+      --text-dark: #0F172A;            /* Slate 900 */
+      --text-body: #475569;            /* Slate 600 */
+      --text-muted: #64748B;           /* Slate 500 */
+      --text-light: #94A3B8;           /* Slate 400 */
+
+      --card-white: #FFFFFF;
+      --card-bg-soft: #F8FAFC;
+      --card-border: #E2E8F0;
+
+      --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      /* Sombras e Curvas */
+      --radius-card: 28px;
+      --radius-banner: 22px;
+      --radius-pill: 9999px;
+      --shadow-canvas: 0 25px 60px -15px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.1);
+      --shadow-hover: 0 16px 36px rgba(0, 0, 0, 0.08);
+      --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-family: var(--font-main);
+      color: var(--text-dark);
+      background-color: #030805;
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ==========================================================================
+       FUNDO 3D CANELADO ESMERALDA OBSIDIANA (VERTICAL FLUTED PILLARS)
+       ========================================================================== */
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      background-color: #030805;
+      background-image: repeating-linear-gradient(
+        to right,
+        #030704 0px,
+        #061109 18px,
+        #0a1f12 38px,
+        #0f321d 52px,
+        #164427 60px,
+        #0f321d 70px,
+        #091c10 86px,
+        #030704 100px
+      );
+      background-attachment: fixed;
+      background-size: 100px 100%;
+      padding: 1rem 0.5rem 3rem;
+    }
+
+    /* Vinheta suave com halo esmeralda institucional */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at 50% 18%, rgba(0, 143, 59, 0.25) 0%, rgba(3, 8, 5, 0.95) 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Letreiro monumental translúcido atrás do card */
+    .hero-watermark-title {
+      position: relative;
+      z-index: 1;
+      font-size: clamp(3.5rem, 16vw, 13rem);
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.16);
+      text-align: center;
+      letter-spacing: -0.02em;
+      line-height: 0.9;
+      margin-top: 1rem;
+      margin-bottom: -2.2rem;
+      pointer-events: none;
+      user-select: none;
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    /* Container Central que segura o Card DrivePro */
+    .drivepro-container {
+      width: 100%;
+      max-width: 1140px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ==========================================================================
+       O CARD FLUTUANTE BRANCO (CANVAS CENTRAL)
+       ========================================================================== */
+    .main-canvas-card {
+      background: #FFFFFF;
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-canvas);
+      padding: 2.2rem;
+      overflow: hidden;
+      margin-bottom: 2rem;
+      animation: cardAppear 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @media (max-width: 768px) {
+      .main-canvas-card {
+        padding: 1.25rem;
+        border-radius: 20px;
+      }
+      body {
+        padding: 0.5rem 0.35rem 2rem;
+      }
+    }
+
+    /* ==========================================================================
+       BARRA DE AVISO TOPO (MINIMALISTA & DISCRETA)
+       ========================================================================== */
+    .top-announcement-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      background: #f8fafc;
+      border: 1px solid #edf2f7;
+      border-radius: var(--radius-pill);
+      padding: 0.4rem 1.15rem;
+      margin-bottom: 1.35rem;
+      font-size: 0.8rem;
+      color: #64748b;
+      font-weight: 500;
+    }
+    .announcement-left {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .announcement-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--brand-primary);
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px rgba(0, 143, 59, 0.2);
+      flex-shrink: 0;
+      animation: pulseDot 2s infinite ease-in-out;
+    }
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+    .announcement-badge {
+      background: rgba(0, 143, 59, 0.09);
+      color: var(--brand-primary);
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .announcement-right {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.78rem;
+      color: #94a3b8;
+    }
+    .announcement-right strong {
+      color: #475569;
+      font-weight: 600;
+    }
+    @media (max-width: 768px) {
+      .top-announcement-bar {
+        font-size: 0.75rem;
+        padding: 0.35rem 0.75rem;
+      }
+      .announcement-right {
+        display: none;
+      }
+    }
+
+    /* ==========================================================================
+       NAVBAR DENTRO DO CARD COM SUPORTE MOBILE PROFISSIONAL
+       ========================================================================== */
+    .card-navbar {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      border-bottom: 1px solid #f1f5f9;
+      margin-bottom: 1.75rem;
+      padding-bottom: 1.25rem;
+      position: relative;
+    }
+
+    .navbar-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .brand-logo-img {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+      transition: opacity 0.2s ease;
+    }
+    .brand-logo-img:hover {
+      opacity: 0.85;
+    }
+
+    .brand-divider {
+      width: 1px;
+      height: 24px;
+      background: #e2e8f0;
+    }
+
+    .brand-title-wrap {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .brand-sub-badge {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #64748b;
+      text-transform: uppercase;
+      line-height: 1.2;
+      margin-bottom: 2px;
+    }
+    .brand-main-title {
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: var(--text-dark);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin: 0;
+    }
+    .brand-city-tag {
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: #94a3b8;
+      line-height: 1.2;
+    }
+
+    .navbar-right-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .nav-phone-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #475569;
+      padding: 0.48rem 0.85rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid #e2e8f0;
+      background: #ffffff;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .nav-phone-link svg {
+      color: #64748b;
+      transition: color 0.2s ease;
+    }
+    .nav-phone-link:hover {
+      color: #0f172a;
+      border-color: #cbd5e1;
+      background: #f8fafc;
+    }
+    .nav-phone-link:hover svg {
+      color: var(--brand-primary);
+    }
+
+    .nav-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: var(--brand-primary);
+      color: #FFFFFF;
+      font-size: 0.84rem;
+      font-weight: 600;
+      padding: 0.52rem 1.15rem;
+      border-radius: var(--radius-pill);
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 1px 3px rgba(0, 143, 59, 0.2), 0 1px 2px rgba(0, 0, 0, 0.04);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      white-space: nowrap;
+    }
+    .nav-cta-btn:hover {
+      background: var(--brand-primary-hover);
+      box-shadow: 0 4px 12px rgba(0, 143, 59, 0.25);
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 580px) {
+      .nav-phone-link {
+        display: none !important;
+      }
+      .brand-title-wrap,
+      .brand-divider {
+        display: none;
+      }
+    }
+
+    /* ==========================================================================
+       BOTÕES PILL EM ESTILO DRIVEPRO
+       ========================================================================== */
+    .pill-btn-green {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--pill-green);
+      color: #FFFFFF;
+      font-size: 0.88rem;
+      font-weight: 700;
+      padding: 0.65rem 1.35rem;
+      border-radius: var(--radius-pill);
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 14px var(--pill-green-glow);
+      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+      white-space: nowrap;
+    }
+    .pill-btn-green:hover {
+      background: var(--pill-green-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(37, 211, 102, 0.45);
+    }
+
+    .pill-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--brand-primary);
+      color: #FFFFFF;
+      font-size: 0.88rem;
+      font-weight: 700;
+      padding: 0.65rem 1.35rem;
+      border-radius: var(--radius-pill);
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 14px var(--brand-primary-glow);
+      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+      white-space: nowrap;
+    }
+    .pill-btn-primary:hover {
+      background: var(--brand-primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 143, 59, 0.4);
+    }
+
+    .pill-btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #FFFFFF;
+      color: var(--text-dark);
+      font-size: 0.88rem;
+      font-weight: 700;
+      padding: 0.65rem 1.35rem;
+      border-radius: var(--radius-pill);
+      border: 1.5px solid var(--card-border);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .pill-btn-outline:hover {
+      border-color: var(--brand-primary);
+      color: var(--brand-primary);
+      background: var(--brand-primary-light);
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       HERO BANNER COM FOTO REAL DOS ALUNOS APROVADOS (ASSETS)
+       ========================================================================== */
+    .hero-banner {
+      width: 100%;
+      background: linear-gradient(135deg, #02200e 0%, #063c1a 50%, #008f3b 100%);
+      border-radius: var(--radius-banner);
+      padding: 3rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 2.5rem;
+      color: #FFFFFF;
+      box-shadow: 0 16px 40px rgba(0, 70, 29, 0.25);
+    }
+
+    /* Textura de fundo e linhas geométricas da DGT */
+    .hero-banner::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(222, 200, 57, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 45%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      width: fit-content;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .hero-eyebrow-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--brand-accent);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    .hero-headline {
+      font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: #FFFFFF;
+    }
+    .hero-headline span.highlight-gold {
+      color: var(--brand-accent);
+      position: relative;
+    }
+
+    .hero-subhead {
+      font-size: 1.02rem;
+      line-height: 1.55;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 480px;
+    }
+
+    .hero-badges-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.25rem;
+    }
+    .hero-badge-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 0.3rem 0.75rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.85rem;
+      margin-top: 0.5rem;
+    }
+
+    .hero-visual-card {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-img-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 440px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+      border: 3px solid rgba(255, 255, 255, 0.35);
+      transition: transform 0.3s ease;
+    }
+    .hero-img-wrapper:hover {
+      transform: translateY(-4px) scale(1.01);
+    }
+    .hero-real-photo {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+    }
+
+    /* Floating Card de Alunos Aprovados no Hero */
+    .hero-floating-badge {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      right: 16px;
+      background: rgba(15, 23, 42, 0.88);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 14px;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #FFFFFF;
+    }
+    .floating-badge-left {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+    .badge-l-sign {
+      width: 32px;
+      height: 32px;
+      background: var(--dgt-blue);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 1.25rem;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+    .badge-text-title {
+      font-size: 0.84rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+    .badge-text-sub {
+      font-size: 0.72rem;
+      color: var(--brand-accent);
+      font-weight: 600;
+    }
+
+    @media (max-width: 991px) {
+      .hero-banner {
+        grid-template-columns: 1fr;
+        padding: 2.2rem 1.5rem;
+        gap: 2rem;
+      }
+      .hero-real-photo {
+        height: 320px;
+      }
+    }
+
+    /* ==========================================================================
+       RÉGUA DE ESTATÍSTICAS E CONFIANÇA (ESTILO MICRO-CARDS DRIVEPRO)
+       ========================================================================== */
+    .stats-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin: 1.75rem 0 2.5rem;
+    }
+    .stat-box {
+      background: var(--card-bg-soft);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 1.25rem 1rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25rem;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .stat-box:hover {
+      transform: translateY(-3px);
+      border-color: var(--brand-primary);
+      background: #FFFFFF;
+      box-shadow: var(--shadow-card);
+    }
+    .stat-num {
+      font-size: 1.85rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    @media (max-width: 768px) {
+      .stats-strip {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+      }
+      .stat-num {
+        font-size: 1.55rem;
+      }
+      .stat-label {
+        font-size: 0.72rem;
+      }
+    }
+
+    /* ==========================================================================
+       TÍTULOS E CABEÇALHOS DE SEÇÃO
+       ========================================================================== */
+    .section-header-center {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 2.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.65rem;
+    }
+    .section-tag-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--brand-primary-light);
+      color: var(--brand-primary);
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.35rem 0.9rem;
+      border-radius: var(--radius-pill);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: 1px solid rgba(0, 143, 59, 0.2);
+    }
+    .section-headline {
+      font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+      font-weight: 900;
+      color: var(--text-dark);
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
+    .section-subtext {
+      font-size: 0.98rem;
+      color: var(--text-body);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       GRID DE CURSOS E PERMISOS (CARD-22 / SHADCN ELEVATED CARDS)
+       ========================================================================== */
+    .courses-section {
+      margin-bottom: 3.5rem;
+    }
+    .place-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .place-card {
+      background: #FFFFFF;
+      border: 1px solid var(--card-border);
+      border-radius: 22px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      position: relative;
+    }
+    .place-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(0, 143, 59, 0.4);
+    }
+
+    .place-card-image-wrap {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      background: #0F172A;
+    }
+    .place-card-cover-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .place-card:hover .place-card-cover-img {
+      transform: scale(1.05);
+    }
+
+    .place-card-top-tags {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      z-index: 2;
+    }
+    .place-tag-pill {
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(6px);
+      color: #FFFFFF;
+      font-size: 0.68rem;
+      font-weight: 800;
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-pill);
+      letter-spacing: 0.04em;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .place-tag-pill.gold {
+      background: var(--brand-accent);
+      color: #1e2127;
+      border-color: transparent;
+    }
+
+    .place-rating-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(6px);
+      color: #FFFFFF;
+      font-size: 0.74rem;
+      font-weight: 800;
+      padding: 0.25rem 0.6rem;
+      border-radius: var(--radius-pill);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      z-index: 2;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .star-icon {
+      fill: var(--brand-accent);
+      color: var(--brand-accent);
+    }
+
+    .place-card-body {
+      padding: 1.35rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+      gap: 1.25rem;
+    }
+    .place-card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.35rem;
+    }
+    .place-card-title {
+      font-size: 1.18rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      line-height: 1.25;
+    }
+    .place-top-rated-badge {
+      background: var(--brand-primary-light);
+      color: var(--brand-primary);
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 0.15rem 0.5rem;
+      border-radius: var(--radius-pill);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .place-card-meta {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 0.65rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .place-card-desc {
+      font-size: 0.86rem;
+      color: var(--text-body);
+      line-height: 1.55;
+    }
+
+    .place-card-features {
+      list-style: none;
+      margin: 0.85rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .place-card-features li {
+      font-size: 0.8rem;
+      color: var(--text-body);
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+    .place-card-features li svg {
+      color: var(--brand-primary);
+      flex-shrink: 0;
+    }
+
+    .place-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--card-border);
+    }
+    .place-price-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+    .place-price-val {
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: var(--text-dark);
+      line-height: 1;
+    }
+    .place-price-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .btn-place-book {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--brand-primary-light);
+      color: var(--brand-primary);
+      font-size: 0.82rem;
+      font-weight: 800;
+      padding: 0.55rem 1rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(0, 143, 59, 0.25);
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn-place-book:hover {
+      background: var(--brand-primary);
+      color: #FFFFFF;
+      transform: translateX(2px);
+    }
+    .btn-place-book .arrow-svg {
+      width: 14px;
+      height: 14px;
+      transition: transform 0.2s ease;
+    }
+    .btn-place-book:hover .arrow-svg {
+      transform: translateX(3px);
+    }
+
+    @media (max-width: 991px) {
+      .place-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 640px) {
+      .place-cards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ==========================================================================
+       SEÇÃO: MÉTODO POLA (ROADMAP 4 PASSOS SEM NERVOS)
+       ========================================================================== */
+    .steps-section {
+      background: var(--card-bg-soft);
+      border-radius: var(--radius-banner);
+      padding: 3rem 2.2rem;
+      margin-bottom: 3.5rem;
+      border: 1px solid var(--card-border);
+    }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      position: relative;
+    }
+    .step-card {
+      background: #FFFFFF;
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 1.5rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      position: relative;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .step-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--brand-primary);
+    }
+    .step-num-badge {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: var(--brand-primary);
+      color: #FFFFFF;
+      font-weight: 900;
+      font-size: 1.15rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px var(--brand-primary-glow);
+    }
+    .step-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      line-height: 1.3;
+    }
+    .step-desc {
+      font-size: 0.85rem;
+      color: var(--text-body);
+      line-height: 1.55;
+    }
+
+    @media (max-width: 991px) {
+      .steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 580px) {
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+      .steps-section {
+        padding: 2rem 1.25rem;
+      }
+    }
+
+    /* ==========================================================================
+       SEÇÃO: RUTAS REAIS DE EXAMEN DGT (VALENCIA & L'ELIANA)
+       ========================================================================== */
+    .routes-section {
+      margin-bottom: 3.5rem;
+    }
+    .routes-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2rem;
+      align-items: center;
+      background: #FFFFFF;
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-banner);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-card);
+    }
+    .routes-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .routes-pills-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-top: 0.5rem;
+    }
+    .route-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      background: var(--card-bg-soft);
+      padding: 0.9rem 1.1rem;
+      border-radius: 14px;
+      border: 1px solid var(--card-border);
+    }
+    .route-item-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--brand-primary-light);
+      color: var(--brand-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .route-item-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 2px;
+    }
+    .route-item-desc {
+      font-size: 0.82rem;
+      color: var(--text-body);
+      line-height: 1.45;
+    }
+
+    .routes-visual-card {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+      border: 2px solid var(--card-border);
+    }
+    .routes-img {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      display: block;
+    }
+
+    @media (max-width: 991px) {
+      .routes-grid {
+        grid-template-columns: 1fr;
+        padding: 1.75rem;
+      }
+      .routes-img {
+        height: 280px;
+      }
+    }
+
+    /* ==========================================================================
+       GALERIA REAL: ALUMNOS CON SU 'L' Y FACHADA (MARQUEE INFINITO)
+       ========================================================================== */
+    .students-gallery-section {
+      margin-bottom: 3.5rem;
+    }
+    .marquee-container {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      padding: 0.5rem 0;
+    }
+    .marquee-container::before,
+    .marquee-container::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 60px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .marquee-container::before {
+      left: 0;
+      background: linear-gradient(to right, #FFFFFF, transparent);
+    }
+    .marquee-container::after {
+      right: 0;
+      background: linear-gradient(to left, #FFFFFF, transparent);
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 1.25rem;
+      width: max-content;
+      animation: marqueeScroll 32s linear infinite;
+    }
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    .gallery-photo-card {
+      width: 280px;
+      height: 340px;
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+      flex-shrink: 0;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      border: 2px solid var(--card-border);
+      background: #0F172A;
+    }
+    .gallery-photo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .gallery-photo-card:hover .gallery-photo-img {
+      transform: scale(1.06);
+    }
+    .gallery-photo-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.25rem 0.9rem 0.75rem;
+      background: linear-gradient(to top, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.6) 60%, transparent 100%);
+      color: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .caption-title {
+      font-size: 0.85rem;
+      font-weight: 800;
+    }
+    .caption-desc {
+      font-size: 0.72rem;
+      color: var(--brand-accent);
+      font-weight: 600;
+    }
+
+    @keyframes marqueeScroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* ==========================================================================
+       SEÇÃO: OPINIONES REALES DE GOOGLE (FUNDO CANELADO ESMERALDA 3D & ALTO CONTRASTE)
+       ========================================================================== */
+    .testimonials-section {
+      background-color: #030805;
+      background-image: 
+        radial-gradient(ellipse at 50% 30%, rgba(0, 143, 59, 0.3) 0%, rgba(3, 8, 5, 0.95) 100%),
+        repeating-linear-gradient(
+          to right,
+          #030704 0px,
+          #061109 18px,
+          #0a1f12 38px,
+          #0f321d 52px,
+          #164427 60px,
+          #0f321d 70px,
+          #091c10 86px,
+          #030704 100px
+        );
+      background-size: 100% 100%, 100px 100%;
+      border-radius: var(--radius-banner);
+      padding: 3.5rem 2.5rem;
+      margin-bottom: 3.5rem;
+      border: 1px solid rgba(0, 143, 59, 0.3);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+
+    .testimonials-section::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(37, 211, 102, 0.12), transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .testimonials-wrapper {
+      max-width: 780px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .google-badge-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      padding: 0.45rem 1.15rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 2rem;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .testimonial-box {
+      min-height: 200px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .testim-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px);
+      transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .testim-slide.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      position: relative;
+    }
+
+    .testim-quote-text {
+      font-size: clamp(1.08rem, 2vw, 1.32rem);
+      font-weight: 500;
+      line-height: 1.7;
+      color: #F8FAFC;
+      font-style: italic;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    }
+    .testim-quote-text span.profe-highlight {
+      color: #4ade80;
+      font-weight: 700;
+      font-style: normal;
+      text-shadow: 0 0 12px rgba(74, 222, 128, 0.4);
+    }
+
+    .testim-author-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+    .testim-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--brand-primary);
+      color: #FFFFFF;
+      font-weight: 900;
+      font-size: 1.15rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid rgba(255, 255, 255, 0.35);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+    }
+    .testim-author-info {
+      text-align: left;
+    }
+    .author-name {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1.2;
+    }
+    .author-meta {
+      font-size: 0.78rem;
+      color: #94A3B8;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 2px;
+    }
+    .author-stars {
+      color: #dec839;
+      letter-spacing: 1px;
+      font-size: 0.85rem;
+    }
+
+    /* Controles do Carrossel (Setas e Dots) */
+    .testim-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+      margin-top: 2.25rem;
+    }
+    .testim-nav-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      transition: all 0.2s ease;
+    }
+    .testim-nav-btn:hover {
+      background: var(--brand-primary);
+      color: #FFFFFF;
+      border-color: var(--brand-primary);
+      box-shadow: 0 0 14px rgba(0, 143, 59, 0.4);
+      transform: scale(1.05);
+    }
+    .testim-dots-wrap {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .testim-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.25);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .testim-dot.active {
+      width: 24px;
+      border-radius: var(--radius-pill);
+      background: #4ade80;
+      box-shadow: 0 0 10px rgba(74, 222, 128, 0.5);
+    }
+
+    @media (max-width: 768px) {
+      .testimonials-section {
+        padding: 2.2rem 1.25rem;
+      }
+    }
+
+    /* ==========================================================================
+       SEÇÃO: CONTACTO, SEDE FÍSICA Y HORARIOS
+       ========================================================================== */
+    .contact-card-banner {
+      background: #FFFFFF;
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-banner);
+      padding: 2.75rem 2.25rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-card);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+
+    .contact-info-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .contact-title-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .contact-main-h2 {
+      font-size: 1.9rem;
+      font-weight: 900;
+      color: var(--text-dark);
+      letter-spacing: -0.02em;
+    }
+    .contact-sub-p {
+      font-size: 0.92rem;
+      color: var(--text-body);
+      line-height: 1.55;
+    }
+
+    .contact-items-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .contact-block {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background: var(--card-bg-soft);
+      padding: 1rem 1.2rem;
+      border-radius: 16px;
+      border: 1px solid var(--card-border);
+      transition: border-color 0.2s ease;
+    }
+    .contact-block:hover {
+      border-color: var(--brand-primary);
+    }
+    .contact-block-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--brand-primary-light);
+      color: var(--brand-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .contact-block-title {
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 3px;
+    }
+    .contact-block-text {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.4;
+    }
+    .contact-block-sub {
+      font-size: 0.8rem;
+      color: var(--text-body);
+    }
+
+    .contact-map-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .map-frame-wrap {
+      width: 100%;
+      height: 100%;
+      min-height: 320px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--card-border);
+      position: relative;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+    }
+    .map-frame-wrap iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 320px;
+      border: none;
+    }
+
+    @media (max-width: 991px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .contact-card-banner {
+        padding: 1.75rem 1.25rem;
+      }
+    }
+
+    /* ==========================================================================
+       RODAPÉ ELEGANTE (FOOTER DENTRO DO CARD)
+       ========================================================================== */
+    .card-footer {
+      border-top: 1px solid var(--card-border);
+      padding-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .footer-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+    }
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .footer-logo-img {
+      height: 36px;
+      width: auto;
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      list-style: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-body);
+    }
+    .footer-links a:hover {
+      color: var(--brand-primary);
+    }
+
+    .footer-bottom-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      border-top: 1px dashed var(--card-border);
+      padding-top: 1.25rem;
+    }
+    .footer-copy {
+      line-height: 1.4;
+    }
+    .footer-legal-links {
+      display: flex;
+      gap: 1rem;
+    }
+    .footer-legal-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* ==========================================================================
+       BOTÃO FLUTUANTE DE WHATSAPP (CANTO INFERIOR DIREITO)
+       ========================================================================== */
+    .floating-whatsapp-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      background: var(--pill-green);
+      color: #FFFFFF;
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.88rem;
+      font-weight: 800;
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.45), 0 0 0 3px rgba(255, 255, 255, 0.9);
+      transition: transform 0.25s ease, background 0.25s ease;
+      animation: floatPulse 3s infinite ease-in-out;
+    }
+    .floating-whatsapp-btn:hover {
+      background: var(--pill-green-hover);
+      transform: translateY(-4px) scale(1.03);
+    }
+    .floating-whatsapp-btn svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
+
+    @keyframes floatPulse {
+      0%, 100% {
+        box-shadow: 0 10px 25px rgba(37, 211, 102, 0.45), 0 0 0 3px rgba(255, 255, 255, 0.9);
+      }
+      50% {
+        box-shadow: 0 14px 32px rgba(37, 211, 102, 0.65), 0 0 0 6px rgba(37, 211, 102, 0.35);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .floating-whatsapp-btn {
+        bottom: 16px;
+        right: 16px;
+        padding: 0.75rem;
+        border-radius: 50%;
+        width: 54px;
+        height: 54px;
+        justify-content: center;
+      }
+      .floating-whatsapp-btn span {
+        display: none;
+      }
+      .floating-whatsapp-btn svg {
+        width: 26px;
+        height: 26px;
+      }
+    }
+
+    /* ==========================================================================
+       ANIMAÇÕES SCROLL-REVEAL E KEYFRAMES
+       ========================================================================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+
+    @keyframes cardAppear {
+      from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.98);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.3); opacity: 0.7; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Letreiro Monumental Translúcido Atrás do Card -->
+  <div class="hero-watermark-title">POLA</div>
+
+  <!-- Container Central DrivePro -->
+  <div class="drivepro-container">
+    <main class="main-canvas-card">
+
+      <!-- Barra de Aviso Superior (Horarios / Matrícula) -->
+      <div class="top-announcement-bar">
+        <div class="announcement-left">
+          <span class="announcement-dot"></span>
+          <span>Matrícula abierta 2026: Teórica online y presencial en L'Eliana</span>
+        </div>
+        <div class="announcement-right">
+          <span>Horario secretaría: <strong>L-V 9:00-14:00 y 16:00-19:00</strong></span>
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           HEADER / NAVBAR (MINIMALISTA)
+           ====================================================================== -->
+      <header class="card-navbar">
+        <div class="navbar-header-row">
+          
+          <!-- Logo Oficial Pola -->
+          <a href="#hero" class="brand-group" aria-label="Auto Escola Pola - Inicio">
+            <img src="assets/images/logo-verde.png" alt="Auto Escola Pola" class="brand-logo-img">
+            <div class="brand-divider"></div>
+            <div class="brand-title-wrap">
+              <span class="brand-sub-badge">Centro Asociado AVAE</span>
+              <span class="brand-city-tag">L'Eliana · Desde 1984</span>
+            </div>
+          </a>
+
+          <!-- Ações do Header -->
+          <div class="navbar-right-actions">
+            <a href="tel:+34962743467" class="nav-phone-link" title="Llamar a secretaría">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <span>962 743 467</span>
+            </a>
+
+            <a href="https://wa.me/34665070390?text=%C2%A1Hola!%20Me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20la%20matr%C3%ADcula%20para%20el%20Permiso%20B%20(coche)%2C%20precios%20y%20c%C3%B3mo%20empezar%20las%20clases%20te%C3%B3ricas%20y%20pr%C3%A1cticas%20en%20Autoescuela%20Pola." 
+               class="nav-cta-btn" 
+               target="_blank" 
+               rel="noopener noreferrer">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c4.55 0 8.24 3.7 8.24 8.24 0 2.2-.86 4.28-2.42 5.83a8.21 8.21 0 0 1-5.82 2.41h-.01c-1.42 0-2.82-.37-4.06-1.08l-.29-.17-3.11.82.83-3.03-.19-.3a8.196 8.196 0 0 1-1.26-4.47c0-4.54 3.7-8.25 8.24-8.25m4.52 11.66c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.88 2.4 1.01 2.57.12.17 1.74 2.66 4.22 3.73.59.25 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-.18-.06-.11-.23-.18-.48-.3z"/></svg>
+              <span>Matrícula WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <!-- ======================================================================
+           HERO SECTION: IMPACTO VISUAL COM FOTO REAL DE ALUNOS APROVADOS
+           ====================================================================== -->
+      <section class="hero-banner" id="hero">
+        <div class="hero-content">
+          <div class="hero-eyebrow">
+            <span class="hero-eyebrow-dot"></span>
+            <span>Desde 1984 en L'Eliana · +40 años de trayectoria</span>
+          </div>
+
+          <h1 class="hero-headline">
+            Sácate el carnet de conducir <span class="highlight-gold">sin estrés</span> en L'Eliana.
+          </h1>
+
+          <p class="hero-subhead">
+            Teórica presencial y online AVAE a tu ritmo. Clases prácticas con profesoras de máxima paciencia (<strong style="color:#FFFFFF;">Rosa y Marian</strong>) y acompañamiento presencial total hasta tu examen de la DGT.
+          </p>
+
+          <div class="hero-badges-row">
+            <span class="hero-badge-tag">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--brand-accent)"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              4.8 Google (50 reseñas)
+            </span>
+            <span class="hero-badge-tag">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Alta tasa de aprobados
+            </span>
+            <span class="hero-badge-tag">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              Centro Asociado AVAE
+            </span>
+          </div>
+
+          <div class="hero-cta-group">
+            <a href="https://wa.me/34665070390?text=%C2%A1Hola!%20Me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20la%20matr%C3%ADcula%20para%20el%20Permiso%20B%20(coche)%2C%20precios%20y%20c%C3%B3mo%20empezar%20las%20clases%20te%C3%B3ricas%20y%20pr%C3%A1cticas%20en%20Autoescuela%20Pola." 
+               class="pill-btn-green" 
+               target="_blank" 
+               rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c4.55 0 8.24 3.7 8.24 8.24 0 2.2-.86 4.28-2.42 5.83a8.21 8.21 0 0 1-5.82 2.41h-.01c-1.42 0-2.82-.37-4.06-1.08l-.29-.17-3.11.82.83-3.03-.19-.3a8.196 8.196 0 0 1-1.26-4.47c0-4.54 3.7-8.25 8.24-8.25m4.52 11.66c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.88 2.4 1.01 2.57.12.17 1.74 2.66 4.22 3.73.59.25 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-.18-.06-.11-.23-.18-.48-.3z"/></svg>
+              <span>¡Empieza Hoy por WhatsApp!</span>
+            </a>
+
+            <a href="tel:+34962743467" class="pill-btn-outline" style="border-color: rgba(255,255,255,0.3); color:#FFFFFF; background: rgba(255,255,255,0.1);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <span>962 743 467</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Foto Real de Alunos com a Placa e Luminoso Pola -->
+        <div class="hero-visual-card">
+          <div class="hero-img-wrapper">
+            <img src="assets/images/alumnos-aprobados-cartel.png" 
+                 alt="Alumnos de Auto Escola Pola aprobados con la placa L" 
+                 class="hero-real-photo">
+            
+            <div class="hero-floating-badge">
+              <div class="floating-badge-left">
+                <div class="badge-l-sign">L</div>
+                <div>
+                  <div class="badge-text-title">¡Aprobados a la primera!</div>
+                  <div class="badge-text-sub">Con el cartel oficial AVAE Pola</div>
+                </div>
+              </div>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--brand-accent)"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           RÉGUA DE ESTATÍSTICAS E CONFIANÇA
+           ====================================================================== -->
+      <div class="stats-strip reveal">
+        <div class="stat-box">
+          <span class="stat-num" style="color: #D97706;">4.8 ★</span>
+          <span class="stat-label">50 Reseñas Google</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num" style="color: var(--brand-primary);">+40 Años</span>
+          <span class="stat-label">Desde 1984 en L'Eliana</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num" style="color: var(--dgt-blue);">&gt;55%</span>
+          <span class="stat-label">Aprobados DGT a la 1ª</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num" style="color: var(--text-dark);">AVAE</span>
+          <span class="stat-label">Centro Oficial Homologado</span>
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           GRID COMPLETO DE CURSOS E PERMISOS
+           ====================================================================== -->
+      <section class="courses-section" id="cursos">
+        <div class="section-header-center reveal">
+          <span class="section-tag-pill">Formación Vial Homologada</span>
+          <h2 class="section-headline">Nuestros Cursos y Permisos de Conducir</h2>
+          <p class="section-subtext">Formación teórica con Aula Virtual 24/7 y prácticas con profesores dedicados en L'Eliana y recorridos de examen de Valencia.</p>
+        </div>
+
+        <div class="place-cards-grid">
+          
+          <!-- CARD 1: PERMISO B (COCHE) -->
+          <article class="place-card reveal delay-1">
+            <div class="place-card-image-wrap">
+              <img src="assets/images/alumnos-coche-practicas.png" 
+                   alt="Alumnos de coche en Auto Escola Pola" 
+                   class="place-card-cover-img" 
+                   loading="lazy">
+
+              <div class="place-card-top-tags">
+                <span class="place-tag-pill">Permiso B</span>
+                <span class="place-tag-pill gold">Top Ventas</span>
+              </div>
+
+              <div class="place-rating-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" class="star-icon"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <span>4.8</span>
+              </div>
+            </div>
+
+            <div class="place-card-body">
+              <div>
+                <div class="place-card-header">
+                  <h3 class="place-card-title">Permiso B (Coche)</h3>
+                  <span class="place-top-rated-badge">El más elegido</span>
+                </div>
+                <div class="place-card-meta">
+                  <span>Manual y Automático</span> &bull; <span>Aula Virtual AVAE</span>
+                </div>
+                <p class="place-card-desc">
+                  Aprende a conducir con profesoras con paciencia de diez (Rosa y Marian). Cero estrés, prácticas en recorridos reales de examen DGT en Valencia y apoyo total.
+                </p>
+                <ul class="place-card-features">
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Tests oficiales actualizados idénticos DGT</span>
+                  </li>
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Mismo coche en tus prácticas y el examen</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="place-card-footer">
+                <div class="place-price-wrap">
+                  <span class="place-price-val">A Consultar</span>
+                  <span class="place-price-label">Matrícula + Packs prácticos</span>
+                </div>
+                <a href="https://wa.me/34665070390?text=%C2%A1Hola!%20Me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20la%20matr%C3%ADcula%20para%20el%20Permiso%20B%20(coche)%2C%20precios%20y%20c%C3%B3mo%20empezar%20las%20clases%20te%C3%B3ricas%20y%20pr%C3%A1cticas%20en%20Autoescuela%20Pola." 
+                   class="btn-place-book" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                  <span>Pedir Precio</span>
+                  <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 2: PERMISOS DE MOTO (AM, A1, A2, A) -->
+          <article class="place-card reveal delay-2">
+            <div class="place-card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=800&auto=format&fit=crop" 
+                   alt="Permisos de moto en Valencia" 
+                   class="place-card-cover-img" 
+                   loading="lazy">
+
+              <div class="place-card-top-tags">
+                <span class="place-tag-pill">Motos DGT</span>
+                <span class="place-tag-pill">AM · A1 · A2 · A</span>
+              </div>
+
+              <div class="place-rating-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" class="star-icon"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <span>4.8</span>
+              </div>
+            </div>
+
+            <div class="place-card-body">
+              <div>
+                <div class="place-card-header">
+                  <h3 class="place-card-title">Permisos de Moto</h3>
+                  <span class="place-top-rated-badge">Todas las cilindradas</span>
+                </div>
+                <div class="place-card-meta">
+                  <span>Desde 15 años</span> &bull; <span>Pista homologada</span>
+                </div>
+                <p class="place-card-desc">
+                  Desde ciclomotores (AM) y 125cc (A1) hasta motocicletas de media cilindrada (A2) y el acceso al Permiso A directo sin examen tras 2 años de antigüedad.
+                </p>
+                <ul class="place-card-features">
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Prácticas de maniobras en circuito cerrado</span>
+                  </li>
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Circulación en tráfico real guiada por intercom</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="place-card-footer">
+                <div class="place-price-wrap">
+                  <span class="place-price-val">A Consultar</span>
+                  <span class="place-price-label">Matrícula y pista</span>
+                </div>
+                <a href="https://wa.me/34665070390?text=%C2%A1Hola!%20Quisiera%20consultar%20informaci%C3%B3n%20sobre%20los%20permisos%20de%20moto%20(AM%2C%20A1%2C%20A2%2C%20A)%20en%20Autoescuela%20Pola." 
+                   class="btn-place-book" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                  <span>Pedir Precio</span>
+                  <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 3: RECUPERACIÓN DE PUNTOS DGT -->
+          <article class="place-card reveal delay-3">
+            <div class="place-card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=800&auto=format&fit=crop" 
+                   alt="Recuperación de Puntos DGT en Valencia" 
+                   class="place-card-cover-img" 
+                   loading="lazy">
+
+              <div class="place-card-top-tags">
+                <span class="place-tag-pill">Oficial DGT</span>
+                <span class="place-tag-pill gold">12h y 24h</span>
+              </div>
+
+              <div class="place-rating-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" class="star-icon"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <span>Oficial</span>
+              </div>
+            </div>
+
+            <div class="place-card-body">
+              <div>
+                <div class="place-card-header">
+                  <h3 class="place-card-title">Recuperación de Puntos</h3>
+                  <span class="place-top-rated-badge">Sin Examen Práctico</span>
+                </div>
+                <div class="place-card-meta">
+                  <span>Parcial (hasta 4 pts)</span> &bull; <span>Pérdida de vigencia</span>
+                </div>
+                <p class="place-card-desc">
+                  Cursos homologados de sensibilización y reeducación vial. Recupera hasta 4 puntos con el curso parcial de 12 horas o recupera tu permiso por agotamiento de saldo (24h).
+                </p>
+                <ul class="place-card-features">
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Trámite directo con la Jefatura de Tráfico</span>
+                  </li>
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Convocatorias continuas y asesoría de saldo</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="place-card-footer">
+                <div class="place-price-wrap">
+                  <span class="place-price-val">Oficial</span>
+                  <span class="place-price-label">Tarifa DGT homologada</span>
+                </div>
+                <a href="https://wa.me/34665070390?text=%C2%A1Hola!%20Necesito%20informaci%C3%B3n%20sobre%20los%20cursos%20de%20recuperaci%C3%B3n%20de%20puntos%20de%20la%20DGT%20(recuperaci%C3%B3n%20parcial%20%2F%20p%C3%A9rdida%20de%20vigencia)%20y%20pr%C3%B3ximas%20fechas%20disponibles." 
+                   class="btn-place-book" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                  <span>Consultar Fechas</span>
+                  <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 4: PERMISOS PROFESIONALES (CAMIÓN Y AUTOBÚS) -->
+          <article class="place-card reveal delay-1">
+            <div class="place-card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=800&auto=format&fit=crop" 
+                   alt="Permisos de camión y tráiler en Valencia" 
+                   class="place-card-cover-img" 
+                   loading="lazy">
+
+              <div class="place-card-top-tags">
+                <span class="place-tag-pill">Profesional</span>
+                <span class="place-tag-pill">C · C+E · D</span>
+              </div>
+
+              <div class="place-rating-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" class="star-icon"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <span>Laboral</span>
+              </div>
+            </div>
+
+            <div class="place-card-body">
+              <div>
+                <div class="place-card-header">
+                  <h3 class="place-card-title">Camión y Autobús</h3>
+                  <span class="place-top-rated-badge">Salida Rápida</span>
+                </div>
+                <div class="place-card-meta">
+                  <span>C1, C, C+E y D</span> &bull; <span>Vehículo pesado</span>
+                </div>
+                <p class="place-card-desc">
+                  Especialízate en el sector del transporte de mercancías pesadas y viajeros. Alta demanda de conductores profesionales en toda la Comunidad Valenciana.
+                </p>
+                <ul class="place-card-features">
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Teórica intensiva específica de pesados</span>
+                  </li>
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Maniobras y enganche con tráiler y autobús</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="place-card-footer">
+                <div class="place-price-wrap">
+                  <span class="place-price-val">A Consultar</span>
+                  <span class="place-price-label">Presupuesto a medida</span>
+                </div>
+                <a href="https://wa.me/34665070390?text=%C2%A1Hola!%20Quisiera%20consultar%20informaci%C3%B3n%20y%20requisitos%20sobre%20los%20permisos%20profesionales%20(Cami%C3%B3n%20C%20%2F%20C%2BE%2C%20Autob%C3%BAs%20D)%20y%20cursos%20CAP%20en%20Autoescuela%20Pola." 
+                   class="btn-place-book" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                  <span>Pedir Info</span>
+                  <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 5: CURSOS CAP (INICIAL Y CONTINUO) -->
+          <article class="place-card reveal delay-2">
+            <div class="place-card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800&auto=format&fit=crop" 
+                   alt="Cursos CAP en Valencia" 
+                   class="place-card-cover-img" 
+                   loading="lazy">
+
+              <div class="place-card-top-tags">
+                <span class="place-tag-pill">Certificación CAP</span>
+                <span class="place-tag-pill">35h / 140h</span>
+              </div>
+
+              <div class="place-rating-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" class="star-icon"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <span>Obligatorio</span>
+              </div>
+            </div>
+
+            <div class="place-card-body">
+              <div>
+                <div class="place-card-header">
+                  <h3 class="place-card-title">Cursos CAP Transporte</h3>
+                  <span class="place-top-rated-badge">Renovación y Obtención</span>
+                </div>
+                <div class="place-card-meta">
+                  <span>Mercancías y Viajeros</span> &bull; <span>Cada 5 años</span>
+                </div>
+                <p class="place-card-desc">
+                  Certificado de Aptitud Profesional imprescindible para trabajar como conductor. CAP Inicial ordinario/acelerado (140h) y cursos de reciclaje periódico (35h).
+                </p>
+                <ul class="place-card-features">
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Horarios de fin de semana para profesionales</span>
+                  </li>
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Posibilidad de bonificación FUNDAE para empresas</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="place-card-footer">
+                <div class="place-price-wrap">
+                  <span class="place-price-val">A Consultar</span>
+                  <span class="place-price-label">Horarios flexibles</span>
+                </div>
+                <a href="https://wa.me/34665070390?text=%C2%A1Hola!%20Quisiera%20informaci%C3%B3n%20sobre%20los%20cursos%20CAP%20(Inicial%20%2F%20Renovaci%C3%B3n%20Continua)%20en%20Autoescuela%20Pola." 
+                   class="btn-place-book" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                  <span>Consultar CAP</span>
+                  <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 6: CLASES DE RECICLAJE Y AMAXOFOBIA -->
+          <article class="place-card reveal delay-3">
+            <div class="place-card-image-wrap">
+              <img src="assets/images/alumnos-profesora-rosa.png" 
+                   alt="Profesora Rosa y alumnos de Auto Escola Pola" 
+                   class="place-card-cover-img" 
+                   loading="lazy">
+
+              <div class="place-card-top-tags">
+                <span class="place-tag-pill">Confianza Total</span>
+                <span class="place-tag-pill gold">Cero Miedos</span>
+              </div>
+
+              <div class="place-rating-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" class="star-icon"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <span>5.0</span>
+              </div>
+            </div>
+
+            <div class="place-card-body">
+              <div>
+                <div class="place-card-header">
+                  <h3 class="place-card-title">Reciclaje y Amaxofobia</h3>
+                  <span class="place-top-rated-badge">Especial Rosa</span>
+                </div>
+                <div class="place-card-meta">
+                  <span>Con carnet en mano</span> &bull; <span>Paciencia infinita</span>
+                </div>
+                <p class="place-card-desc">
+                  ¿Hace tiempo que no conduces o te da ansiedad el tráfico? Con la cercanía y el cariño de nuestra profesora Rosa volverás a disfrutar de la conducción con seguridad y calma.
+                </p>
+                <ul class="place-card-features">
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Prácticas en tus trayectos habituales (casa, trabajo)</span>
+                  </li>
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Sin presiones: ritmo 100% adaptado a tus sensaciones</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="place-card-footer">
+                <div class="place-price-wrap">
+                  <span class="place-price-val">Por Clase</span>
+                  <span class="place-price-label">Bonos disponibles</span>
+                </div>
+                <a href="https://wa.me/34665070390?text=%C2%A1Hola!%20Ya%20tengo%20el%20carnet%20de%20conducir%20pero%20me%20gustar%C3%ADa%20dar%20unas%20clases%20pr%C3%A1cticas%20de%20reciclaje%20para%20ganar%20confianza%20y%20soltura%20al%20volante.%20%C2%BFC%C3%B3mo%20puedo%20reservarlas%3F" 
+                   class="btn-place-book" 
+                   target="_blank" 
+                   rel="noopener noreferrer">
+                  <span>Reservar Clase</span>
+                  <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           SEÇÃO: O MÉTODO POLA (PASSO A PASSO ATÉ A SUA 'L')
+           ====================================================================== -->
+      <section class="steps-section reveal" id="proceso">
+        <div class="section-header-center">
+          <span class="section-tag-pill">Tu Camino al Aprobado</span>
+          <h2 class="section-headline">El Método Pola: De Cero a Conductor Seguro</h2>
+          <p class="section-subtext">Cuatro pasos sencillos, transparentes y organizados para que consigas tu permiso sin complicaciones.</p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-num-badge">1</div>
+            <h3 class="step-title">Matrícula y Aula Virtual AVAE</h3>
+            <p class="step-desc">
+              Atención inmediata de Arantxa en secretaría. Acceso 24/7 a la plataforma oficial con los tests idénticos a los de la DGT para estudiar en tu móvil u ordenador.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-num-badge">2</div>
+            <h3 class="step-title">Teórica a tu Medida</h3>
+            <p class="step-desc">
+              Clases teóricas explicadas de forma amena y clara. Resolvemos todas tus dudas y fijamos los conceptos clave para que apruebes el examen teórico a la primera.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-num-badge">3</div>
+            <h3 class="step-title">Prácticas sin Estrés con Rosa</h3>
+            <p class="step-desc">
+              Aprende a conducir con serenidad, paciencia y buen humor. Rutas reales de examen DGT en Valencia para que nada te pille por sorpresa.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-num-badge">4</div>
+            <h3 class="step-title">Apoyo el Día del Examen</h3>
+            <p class="step-desc">
+              No vas solo. Carmelo y nuestro equipo te acompañan personalmente al centro de examen de la DGT con el mismo coche en el que has practicado. ¡Y a lucir tu L!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           SEÇÃO: RUTAS REAIS DE EXAME DGT
+           ====================================================================== -->
+      <section class="routes-section reveal" id="rutas">
+        <div class="routes-grid">
+          <div class="routes-content">
+            <span class="section-tag-pill" style="width:fit-content;">Especialistas en Valencia</span>
+            <h2 class="section-headline" style="font-size: clamp(1.6rem, 2.8vw, 2.2rem);">
+              Practica exactamente en las zonas donde te examinará la DGT
+            </h2>
+            <p class="section-subtext">
+              El secreto de nuestra alta tasa de aprobados es que te preparamos en las intersecciones, rotondas complejas e incorporaciones de autovía reales del centro examinador de Valencia.
+            </p>
+
+            <div class="routes-pills-list">
+              <div class="route-item">
+                <div class="route-item-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                </div>
+                <div>
+                  <div class="route-item-title">Campanar, Ronda Norte y Pista de Silla</div>
+                  <div class="route-item-desc">Dominarás las incorporaciones rápidas, cambios de carril con tráfico denso y señalización vertical compleja.</div>
+                </div>
+              </div>
+
+              <div class="route-item">
+                <div class="route-item-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
+                </div>
+                <div>
+                  <div class="route-item-title">Centro Examinador El Saler y DGT Valencia</div>
+                  <div class="route-item-desc">Aprenderás los puntos calientes y las maniobras de estacionamiento donde más alumnos suelen dudar.</div>
+                </div>
+              </div>
+
+              <div class="route-item">
+                <div class="route-item-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                </div>
+                <div>
+                  <div class="route-item-title">L'Eliana, La Pobla de Vallbona y Camp de Túria</div>
+                  <div class="route-item-desc">Tus primeras prácticas en un entorno tranquilo y cercano para ganar soltura en los mandos antes de entrar a Valencia.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="routes-visual-card">
+            <img src="assets/images/fachada-autoescuela-pola.png" 
+                 alt="Fachada oficial de Auto Escola Pola en Carrer Major 44 de L'Eliana con alumnos aprobados" 
+                 class="routes-img" 
+                 loading="lazy">
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           GALERIA REAL: ALUMNOS CON SU 'L' Y FACHADA (MARQUEE INFINITO)
+           ====================================================================== -->
+      <section class="students-gallery-section reveal" id="galeria">
+        <div class="section-header-center">
+          <span class="section-tag-pill">Casos de Éxito Reales</span>
+          <h2 class="section-headline">Nuestros Alumnos con su 'L' en L'Eliana</h2>
+          <p class="section-subtext">Sonrisas auténticas, conductores preparados y el cartel oficial de Auto Escola Pola en nuestras instalaciones.</p>
+        </div>
+
+        <div class="marquee-container">
+          <div class="marquee-track">
+            
+            <!-- SET 1: FOTOS REAIS DOS ASSETS -->
+            <div class="gallery-photo-card">
+              <img src="assets/images/alumnos-aprobados-cartel.png" alt="Alumnos con cartel oficial Pola" class="gallery-photo-img" loading="lazy">
+              <div class="gallery-photo-caption">
+                <span class="caption-title">¡Aprobados juntos!</span>
+                <span class="caption-desc">Con el luminoso AVAE Pola</span>
+              </div>
+            </div>
+
+            <div class="gallery-photo-card">
+              <img src="assets/images/alumnos-profesora-rosa.png" alt="Alumnos con la profesora Rosa" class="gallery-photo-img" loading="lazy">
+              <div class="gallery-photo-caption">
+                <span class="caption-title">Entrega de Placa 'L'</span>
+                <span class="caption-desc">Con la profesora Rosa en la puerta</span>
+              </div>
+            </div>
+
+            <div class="gallery-photo-card">
+              <img src="assets/images/fachada-autoescuela-pola.png" alt="Fachada física Auto Escola Pola" class="gallery-photo-img" loading="lazy">
+              <div class="gallery-photo-caption">
+                <span class="caption-title">Nuestra Sede en Carrer Major 44</span>
+                <span class="caption-desc">Letreiro oficial verde AVAE Pola</span>
+              </div>
+            </div>
+
+            <div class="gallery-photo-card">
+              <img src="assets/images/alumnos-coche-practicas.png" alt="Alumnos junto al coche de prácticas" class="gallery-photo-img" loading="lazy">
+              <div class="gallery-photo-caption">
+                <span class="caption-title">Junto al coche de prácticas</span>
+                <span class="caption-desc">Celebrando el examen aprobado</span>
+              </div>
+            </div>
+
+            <div class="gallery-photo-card">
+              <img src="assets/images/alumno-celebrando-aprobado.png" alt="Alumno feliz en Auto Escola Pola" class="gallery-photo-img" loading="lazy">
+              <div class="gallery-photo-caption">
+                <span class="caption-title">Secretaría y campañas AVAE</span>
+                <span class="caption-desc">Listo para coger la carretera</span>
+              </div>
+            </div>
+
+            <!-- SET 2: DUPLICAÇÃO PARA EFEITO LOOP INFINITO -->
+            <div class="gallery-photo-card">
+              <img src="assets/images/alumnos-aprobados-cartel.png" alt="Alumnos con cartel oficial Pola" class="gallery-photo-img" loading="lazy">
+              <div class="gallery-photo-caption">
+                <span class="caption-title">¡Aprobados juntos!</span>
+                <span class="caption-desc">Con el luminoso AVAE Pola</span>
+              </div>
+            </div>
+
+            <div class="gallery-photo-card">
+              <img src="assets/images/alumnos-profesora-rosa.png" alt="Alumnos con la profesora Rosa" class="gallery-photo-img" loading="lazy">
+              <div class="gallery-photo-caption">
+                <span class="caption-title">Entrega de Placa 'L'</span>
+                <span class="caption-desc">Con la profesora Rosa en la puerta</span>
+              </div>
+            </div>
+
+            <div class="gallery-photo-card">
+              <img src="assets/images/fachada-autoescuela-pola.png" alt="Fachada física Auto Escola Pola" class="gallery-photo-img" loading="lazy">
+              <div class="gallery-photo-caption">
+                <span class="caption-title">Nuestra Sede en Carrer Major 44</span>
+                <span class="caption-desc">Letreiro oficial verde AVAE Pola</span>
+              </div>
+            </div>
+
+            <div class="gallery-photo-card">
+              <img src="assets/images/alumnos-coche-practicas.png" alt="Alumnos junto al coche de prácticas" class="gallery-photo-img" loading="lazy">
+              <div class="gallery-photo-caption">
+                <span class="caption-title">Junto al coche de prácticas</span>
+                <span class="caption-desc">Celebrando el examen aprobado</span>
+              </div>
+            </div>
+
+            <div class="gallery-photo-card">
+              <img src="assets/images/alumno-celebrando-aprobado.png" alt="Alumno feliz en Auto Escola Pola" class="gallery-photo-img" loading="lazy">
+              <div class="gallery-photo-caption">
+                <span class="caption-title">Secretaría y campañas AVAE</span>
+                <span class="caption-desc">Listo para coger la carretera</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           SEÇÃO: OPINIONES REALES DE GOOGLE (CARROSSEL AUTOMÁTICO)
+           ====================================================================== -->
+      <section class="testimonials-section reveal" id="opiniones">
+        <div class="testimonials-wrapper">
+          <div class="google-badge-top">
+            <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+            <span>4.8 / 5.0 en Google Reviews · 50 Opiniones Reales</span>
+          </div>
+
+          <div class="testimonial-box" id="testimonialBox">
+            
+            <!-- REVIEW 1: YURGUEN _21 -->
+            <div class="testim-slide active">
+              <p class="testim-quote-text">
+                "Muy contento con la Autoescuela Pola, empezando desde la gran implicación diaria de <span class="profe-highlight">Arantxa</span> gestionando el servicio de prácticas semanales y la disposición al cliente, en segundo lugar la mejor profesora que se puede tener, <span class="profe-highlight">Rosa</span>, una profesora que para mí ha sido como una madre, atenta, cariñosa pero lo más importante una profesora de 10 que te enseña de manera perfecta desde el primer día que cogemos el coche, por último hacer hincapié en <span class="profe-highlight">Carmelo</span> que a pesar de no ser nuestro profesor se ha puesto a nuestra disposición para llevarnos al examen."
+              </p>
+              <div class="testim-author-wrap">
+                <div class="testim-avatar">Y</div>
+                <div class="testim-author-info">
+                  <div class="author-name">Yurguen _21</div>
+                  <div class="author-meta"><span class="author-stars">★★★★★</span> &bull; Alumno aprobado Permiso B</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- REVIEW 2: MACARENA GUILLÉN -->
+            <div class="testim-slide">
+              <p class="testim-quote-text">
+                "Tras obtener mi permiso de circulación, aseguro que esta es la mejor autoescuela. He recibido en estos meses un trato maravilloso, tanto a la hora de organizarme las practicas como a la hora de hacerlas. Y sin olvidarme de mi profesora <span class="profe-highlight">Rosa</span>, que con todo su cariño y con toda la paciencia del mundo me ha acompañado durante todo este trayecto. Nunca ha perdido la confianza en mí y ha hecho que el proceso haya sido muy ameno y agradable. Me llevo de esta autoescuela un gran recuerdo y una experiencia muy bonita."
+              </p>
+              <div class="testim-author-wrap">
+                <div class="testim-avatar" style="background:#8b5cf6;">M</div>
+                <div class="testim-author-info">
+                  <div class="author-name">Macarena Guillén</div>
+                  <div class="author-meta"><span class="author-stars">★★★★★</span> &bull; Alumna con su 'L'</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- REVIEW 3: CÉSAR FERRER -->
+            <div class="testim-slide">
+              <p class="testim-quote-text">
+                "Muy buena experiencia con la autoescuela, la profesora <span class="profe-highlight">Rosa</span> enseña muy bien y tiene mucha paciencia, ayuda mucho al alumno y se asegura de que sepas conducir bien. Nos han hecho el grandísimo favor de llevarnos a la zona de examen el día del mismo, muchas gracias a <span class="profe-highlight">Carmelo</span>. Finalmente excelente atención por parte de <span class="profe-highlight">Arantxa</span>, la secretaria."
+              </p>
+              <div class="testim-author-wrap">
+                <div class="testim-avatar" style="background:#0284c7;">C</div>
+                <div class="testim-author-info">
+                  <div class="author-name">César Ferrer</div>
+                  <div class="author-meta"><span class="author-stars">★★★★★</span> &bull; Conductor novel DGT</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- REVIEW 4: HUGO GONZÁLEZ -->
+            <div class="testim-slide">
+              <p class="testim-quote-text">
+                "Tras conseguir mi carnet de conducir me quedo sobre todo con mi profesora <span class="profe-highlight">Rosa</span>, una magnífica profesora y persona que me ha ayudado mucho en conseguir el carnet y pasar los días bien amenos y divertidos en su compañía. ¡Totalmente recomendada!"
+              </p>
+              <div class="testim-author-wrap">
+                <div class="testim-avatar" style="background:#f59e0b;">H</div>
+                <div class="testim-author-info">
+                  <div class="author-name">Hugo González</div>
+                  <div class="author-meta"><span class="author-stars">★★★★★</span> &bull; Aprobado a la primera</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- REVIEW 5: LENIAD 016 -->
+            <div class="testim-slide">
+              <p class="testim-quote-text">
+                "Maravillosa autoescuela, sobre todo <span class="profe-highlight">Rosa</span> en las prácticas que nos ha preparado con muchísima paciencia, maravillosamente con su sentido del humor y a golpe de carpeta. Preparado para coger el coche yo solo con total seguridad."
+              </p>
+              <div class="testim-author-wrap">
+                <div class="testim-avatar" style="background:#ec4899;">L</div>
+                <div class="testim-author-info">
+                  <div class="author-name">Leniad 016</div>
+                  <div class="author-meta"><span class="author-stars">★★★★★</span> &bull; Alumno con su 'L'</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Controles do Carrossel -->
+          <div class="testim-controls">
+            <button class="testim-nav-btn" id="testimPrevBtn" aria-label="Opinión anterior">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <div class="testim-dots-wrap">
+              <span class="testim-dot active"></span>
+              <span class="testim-dot"></span>
+              <span class="testim-dot"></span>
+              <span class="testim-dot"></span>
+              <span class="testim-dot"></span>
+            </div>
+            <button class="testim-nav-btn" id="testimNextBtn" aria-label="Opinión siguiente">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           SEÇÃO: CONTACTO, SEDE FÍSICA Y HORARIOS
+           ====================================================================== -->
+      <section class="contact-card-banner reveal" id="contacto">
+        <div class="contact-grid">
+          
+          <div class="contact-info-col">
+            <div class="contact-title-group">
+              <span class="section-tag-pill" style="width: fit-content;">Encuéntranos en L'Eliana</span>
+              <h2 class="contact-main-h2">Ven a Conocernos a Nuestra Secretaría</h2>
+              <p class="contact-sub-p">
+                Estamos en pleno centro de L'Eliana. Te atenderemos personalmente para resolver tus dudas, organizar tus horarios de prácticas o matricularte al momento.
+              </p>
+            </div>
+
+            <div class="contact-items-stack">
+              <!-- Endereço -->
+              <div class="contact-block">
+                <div class="contact-block-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                </div>
+                <div>
+                  <div class="contact-block-title">Dirección Física</div>
+                  <div class="contact-block-text">Carrer Major (Calle Mayor), 44</div>
+                  <div class="contact-block-sub">46183 L'Eliana, Valencia (Comunitat Valenciana)</div>
+                </div>
+              </div>
+
+              <!-- Horários -->
+              <div class="contact-block">
+                <div class="contact-block-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                </div>
+                <div>
+                  <div class="contact-block-title">Horarios de Secretaría</div>
+                  <div class="contact-block-text">Lunes a Viernes: 09:00 - 14:00 y 16:00 - 19:00 h</div>
+                  <div class="contact-block-sub">Sábados y Domingos: Cerrado &bull; Prácticas según agenda</div>
+                </div>
+              </div>
+
+              <!-- Telefones e WhatsApp -->
+              <div class="contact-block">
+                <div class="contact-block-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                </div>
+                <div>
+                  <div class="contact-block-title">Teléfonos Directos</div>
+                  <div class="contact-block-text">
+                    <a href="tel:+34962743467" style="color:var(--brand-primary);">962 743 467</a> &bull; 
+                    <a href="tel:+34961827706" style="color:var(--brand-primary);">961 827 706</a>
+                  </div>
+                  <div class="contact-block-sub">
+                    WhatsApp Secretaría: <a href="https://wa.me/34665070390" target="_blank" rel="noopener noreferrer" style="font-weight:700; color:var(--pill-green);">+34 665 07 03 90</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- E-mail -->
+              <div class="contact-block">
+                <div class="contact-block-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </div>
+                <div>
+                  <div class="contact-block-title">Correo Electrónico</div>
+                  <div class="contact-block-text">
+                    <a href="mailto:autoescuelapola@hotmail.com">autoescuelapola@hotmail.com</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <a href="https://www.google.com/maps/place/Auto+Escola+Pola/@39.5656544,-0.5305555,17z/data=!3m1!4b1!4m6!3m5!1s0xd6059537e139b87:0xcd2471d22aa9569d!8m2!3d39.5656544!4d-0.5305555!16s%2Fg%2F1hc2p1fbw" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="pill-btn-outline" 
+                 style="width: fit-content;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+                <span>Abrir en Google Maps</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Mapa Interativo do Google Maps -->
+          <div class="contact-map-col">
+            <div class="map-frame-wrap">
+              <iframe 
+                src="https://maps.google.com/maps?q=39.5656544,-0.5305555+(Auto%20Escola%20Pola%20L'Eliana)&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" 
+                title="Ubicación de Auto Escola Pola en Google Maps" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           RODAPÉ ELEGANTE (FOOTER DENTRO DO CARD)
+           ====================================================================== -->
+      <footer class="card-footer">
+        <div class="footer-top-row">
+          <div class="footer-brand">
+            <img src="assets/images/logo-verde.png" alt="Auto Escola Pola" class="footer-logo-img">
+            <div>
+              <div style="font-weight: 800; font-size: 0.95rem; color: var(--text-dark);">Auto Escola Pola</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted);">Asociada a AVAE · Formación Vial desde 1984</div>
+            </div>
+          </div>
+
+          <ul class="footer-links">
+            <li><a href="#cursos">Cursos</a></li>
+            <li><a href="#proceso">Método</a></li>
+            <li><a href="#rutas">Rutas DGT</a></li>
+            <li><a href="#galeria">Alumnos</a></li>
+            <li><a href="#opiniones">Opiniones</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="https://www.instagram.com/autoescuelapola/" target="_blank" rel="noopener noreferrer" style="color:var(--brand-primary); font-weight:700;">Instagram @autoescuelapola</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-bottom-row">
+          <div class="footer-copy">
+            &copy; <span id="year">2026</span> Auto Escola Pola. Todos los derechos reservados. Carrer Major, 44, 46183 L'Eliana (Valencia).
+          </div>
+          <div class="footer-legal-links">
+            <a href="#">Aviso Legal</a>
+            <a href="#">Política de Privacidad</a>
+            <a href="#">Política de Cookies</a>
+          </div>
+        </div>
+      </footer>
+
+    </main>
+  </div>
+
+  <!-- ==========================================================================
+       BOTÃO FLUTUANTE DE WHATSAPP (CANTO INFERIOR DIREITO)
+       ========================================================================== -->
+  <a href="https://wa.me/34665070390?text=%C2%A1Hola!%20Me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20los%20cursos%20y%20matr%C3%ADculas%20en%20Autoescuela%20Pola." 
+     class="floating-whatsapp-btn" 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     title="Hablar por WhatsApp con Autoescuela Pola" 
+     aria-label="Hablar por WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c4.55 0 8.24 3.7 8.24 8.24 0 2.2-.86 4.28-2.42 5.83a8.21 8.21 0 0 1-5.82 2.41h-.01c-1.42 0-2.82-.37-4.06-1.08l-.29-.17-3.11.82.83-3.03-.19-.3a8.196 8.196 0 0 1-1.26-4.47c0-4.54 3.7-8.25 8.24-8.25m4.52 11.66c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.88 2.4 1.01 2.57.12.17 1.74 2.66 4.22 3.73.59.25 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-.18-.06-.11-.23-.18-.48-.3z"/></svg>
+    <span>¿Dudas? WhatsApp</span>
+  </a>
+
+  <!-- ==========================================================================
+       SCRIPTS JAVASCRIPT: INTERAÇÕES, CARROSSEL E SCROLL-REVEAL
+       ========================================================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // 1. Atualizar ano no rodapé
+      const yr = document.getElementById('year');
+      if (yr) yr.textContent = new Date().getFullYear();
+
+      // 2. Sistema de Animação de Entrada Scroll-Reveal (IntersectionObserver super leve)
+      const reveals = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.12,
+          rootMargin: '0px 0px -40px 0px'
+        });
+
+        reveals.forEach(el => revealObserver.observe(el));
+      } else {
+        // Fallback para navegadores legados
+        reveals.forEach(el => el.classList.add('active'));
+      }
+
+      // 4. Carrossel Automático de Depoimentos Reais do Google
+      const testimSlides = document.querySelectorAll('.testim-slide');
+      const testimDots = document.querySelectorAll('.testim-dot');
+      const testimPrevBtn = document.getElementById('testimPrevBtn');
+      const testimNextBtn = document.getElementById('testimNextBtn');
+      const testimBox = document.getElementById('testimonialBox');
+
+      if (testimSlides.length > 0) {
+        let currentTestimIndex = 0;
+        let testimTimer = null;
+        const totalTestim = testimSlides.length;
+        const AUTO_INTERVAL = 5000; // Alterna a cada 5 segundos
+
+        function showTestim(index) {
+          if (index < 0) index = totalTestim - 1;
+          if (index >= totalTestim) index = 0;
+          currentTestimIndex = index;
+
+          testimSlides.forEach((slide, idx) => {
+            if (idx === index) {
+              slide.classList.add('active');
+            } else {
+              slide.classList.remove('active');
+            }
+          });
+
+          testimDots.forEach((dot, idx) => {
+            if (idx === index) {
+              dot.classList.add('active');
+            } else {
+              dot.classList.remove('active');
+            }
+          });
+        }
+
+        function nextTestim() {
+          showTestim(currentTestimIndex + 1);
+        }
+
+        function prevTestim() {
+          showTestim(currentTestimIndex - 1);
+        }
+
+        function startAutoPlay() {
+          stopAutoPlay();
+          testimTimer = setInterval(nextTestim, AUTO_INTERVAL);
+        }
+
+        function stopAutoPlay() {
+          if (testimTimer) {
+            clearInterval(testimTimer);
+            testimTimer = null;
+          }
+        }
+
+        startAutoPlay();
+
+        if (testimBox) {
+          testimBox.addEventListener('mouseenter', stopAutoPlay);
+          testimBox.addEventListener('mouseleave', startAutoPlay);
+
+          // Suporte a swipe de toque no celular
+          let touchStartX = 0;
+          let touchEndX = 0;
+          testimBox.addEventListener('touchstart', e => {
+            stopAutoPlay();
+            touchStartX = e.changedTouches[0].screenX;
+          }, { passive: true });
+          testimBox.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX - touchEndX > 45) {
+              nextTestim();
+            } else if (touchEndX - touchStartX > 45) {
+              prevTestim();
+            }
+            startAutoPlay();
+          }, { passive: true });
+        }
+
+        if (testimPrevBtn) {
+          testimPrevBtn.addEventListener('click', () => {
+            prevTestim();
+            startAutoPlay();
+          });
+        }
+        if (testimNextBtn) {
+          testimNextBtn.addEventListener('click', () => {
+            nextTestim();
+            startAutoPlay();
+          });
+        }
+
+        testimDots.forEach((dot, idx) => {
+          dot.addEventListener('click', () => {
+            showTestim(idx);
+            startAutoPlay();
+          });
+        });
+      }
+
+    });
+  </script>
+</body>
+</html>
